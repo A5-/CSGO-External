@@ -174,12 +174,10 @@ bool Misc::GetFakeLag()
 
 void Misc::NoHands() // Have to set before you join a game
 {
-	if( m_nohands )
-	{
-		char nohands[ 256 ] = { 0 };
-		process->Write<char[ 256 ]>( LocalEntity.GetPointer() + g_pDynamic->m_szArmsModel, nohands );
-		g_pEngine->ForceUpdate();
-	}
+
+	char nohands[ 256 ] = { 0 };
+	process->Write<char[ 256 ]>( LocalEntity.GetPointer() + g_pDynamic->m_szArmsModel, nohands );
+	g_pEngine->ForceUpdate();
 }
 
 void Misc::SetNoHands()
