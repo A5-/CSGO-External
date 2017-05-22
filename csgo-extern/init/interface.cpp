@@ -19,6 +19,11 @@ void Interface::OnSetup()
 	if( !m_hVstdlib )
 		return;
 
+	m_hPhonon3d = process->LoadRemote( "phonon3d.dll" );
+
+	if ( !m_hPhonon3d )
+		return;
+
 	m_hClient = process->LoadRemote( "client.dll" );
 
 	if( !m_hClient )
@@ -34,7 +39,7 @@ void Interface::OnSetup()
 	if( !ClientFactory )
 		return;
 
-	m_pClient = ( CHLClient* )ClientFactory( "VClient017", nullptr );
+	m_pClient = ( CHLClient* )ClientFactory( "VClient018", nullptr );
 
 	if( !m_pClient )
 		return;
@@ -49,7 +54,7 @@ void Interface::OnSetup()
 	if( !EngineFactory )
 		return;
 
-	m_pEngine = ( CEngineClient* )EngineFactory( "VEngineClient013", nullptr );
+	m_pEngine = ( CEngineClient* )EngineFactory( "VEngineClient014", nullptr );
 
 	if( !m_pEngine )
 		return;

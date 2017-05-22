@@ -57,14 +57,14 @@ void Entity::Update( int iIndex )
 	m_vPunch				= process->Read<Vector3>( m_dwPointer + g_pDynamic->m_aimPunchAngle );
 	m_iTeamNum				= process->Read<int>( m_dwPointer + g_pDynamic->m_iTeamNum );
 	m_iFlags				= process->Read<int>( m_dwPointer + g_pDynamic->m_fFlags );
-	m_iCrossHairID			= process->Read<int>( m_dwPointer + 0x2400 );				
+	m_iCrossHairID			= process->Read<int>( m_dwPointer + 0xAA70 );				
 	m_hActiveWeapon			= process->Read<int>( m_dwPointer + g_pDynamic->m_hActiveWeapon );
 	m_iCompetitiveRanking	= process->Read<int>( g_pStatic->GameResources + g_pDynamic->m_iCompetitiveRanking + m_iIndex * 4 );
 	m_iCompetitiveWins		= process->Read<int>( g_pStatic->GameResources + g_pDynamic->m_iCompetitiveWins + m_iIndex * 4 );
 	m_bDead					= process->Read<bool>( m_dwPointer + g_pDynamic->m_lifeState );
 	m_bIsDormant			= process->Read<bool>( m_dwPointer + 0xE9 );
-	m_i64SpottedByMask		= process->Read<INT64>( m_dwPointer + 0x978 );
-	m_bSpotted				= process->Read<bool>( m_dwPointer + 0x935 );
+	m_i64SpottedByMask		= process->Read<INT64>( m_dwPointer + 0x97C );
+	m_bSpotted				= process->Read<bool>( m_dwPointer + 0x939 );
 
 	// Player name with player_info_t
 	// credits to brinkz
@@ -76,12 +76,12 @@ void Entity::Update( int iIndex )
 	if( !g_pStatic->EnginePointer )
 		return;
 
-	ECX = process->Read<DWORD_PTR>( g_pStatic->EnginePointer + 0x5210 );
+	ECX = process->Read<DWORD_PTR>( g_pStatic->EnginePointer + 0x523C );
 
 	if( !ECX )
 		return;
 
-	EDX = process->Read<DWORD_PTR>( ECX + 0x38 );
+	EDX = process->Read<DWORD_PTR>( ECX + 0x3C );
 
 	if( !EDX )
 		return;

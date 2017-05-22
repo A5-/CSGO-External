@@ -64,6 +64,7 @@ public:
 	HMODULE			m_hSteamApi = NULL;
 	HMODULE			m_hTier0	= NULL;
 	HMODULE			m_hVstdlib	= NULL;
+	HMODULE         m_hPhonon3d = NULL;
 	HMODULE			m_hClient	= NULL;
 	HMODULE			m_hEngine	= NULL;
 };
